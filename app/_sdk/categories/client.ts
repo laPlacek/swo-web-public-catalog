@@ -1,4 +1,4 @@
-import { Category } from "./category";
+import { Category, normalizeName } from "./category";
 
 // TODO: Remove mock, make real request
 const MOCK_CATEGORIES: Category[] = [
@@ -34,7 +34,16 @@ const MOCK_CATEGORIES: Category[] = [
 export class CategoriesClient {
   constructor(private apiUrl: string) {}
 
-  async getCategories(): Promise<Category[]> {
+  // this will probably be more sophisticated :) (paging, filtering, etc). We can also rename it.
+  async findAll(): Promise<Category[]> {
     return MOCK_CATEGORIES;
+  }
+
+  async getByName(normalizedName: string): Promise<Category | null> {
+    return (
+      MOCK_CATEGORIES.find(
+        (c) => normalizeName(c.name) === normalizeName(normalizedName)
+      ) || null
+    );
   }
 }

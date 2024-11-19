@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Outlet } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
@@ -9,24 +10,13 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const [a, setA] = useState("");
-
-
-
-  useEffect(() => {
-    // localStore, window.
-  }, [])
-
-  setA("asdf")
-
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          Header
-        </header>
+        <header className="flex flex-col items-center gap-9">Header</header>
         <main>
-          Main
+          <p>Index outlet:</p>
+          <Outlet />
         </main>
       </div>
     </div>

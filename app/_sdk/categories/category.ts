@@ -11,3 +11,7 @@ export const CategorySchema = z.object({
 });
 
 export type Category = z.infer<typeof CategorySchema>;
+
+export const normalizeName = (name: string) => {
+  return name.trim().replace(/\s+/g, "-");
+};
