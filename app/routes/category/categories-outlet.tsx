@@ -14,12 +14,14 @@ export const CategoriesOutlet = () => {
       </button>
       <p>CategoriesOutlet counter: {count}</p>
 
-      <CategoriesOutletChild />
+      <CategoriesOutletChild
+        onClick={() => console.log("My child was clicked :|")}
+      />
     </main>
   );
 };
 
-const CategoriesOutletChild = () => {
+const CategoriesOutletChild = ({ onClick }: { onClick?: () => void }) => {
   console.log("Im checking my state! - CategoriesOutletChild");
   const [count, setCount] = useState(0);
 
@@ -27,7 +29,12 @@ const CategoriesOutletChild = () => {
     <div className="border-2 border-yellow-500">
       <h2>CategoriesOutletChild:</h2>
 
-      <button onClick={() => setCount((c) => c + 1)}>
+      <button
+        onClick={() => {
+          setCount((c) => c + 1);
+          onClick?.();
+        }}
+      >
         Bump CategoriesOutletChild counter
       </button>
       <p>CategoriesOutletChild counter: {count}</p>
