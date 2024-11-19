@@ -2,32 +2,30 @@ import { Outlet } from "@remix-run/react";
 import { useState } from "react";
 
 export const CategoriesOutlet = () => {
-  console.log("Im checking my state! - CategoriesOutlet");
+  console.log("Papa says: Im checking my state!");
   const [count, setCount] = useState(0);
 
   return (
     <main className="mt-4 border-blue-500 border-2">
-      <h1>CategoriesOutlet:</h1>
+      <h1>Papa:</h1>
 
-      <button onClick={() => setCount((c) => c + 1)}>
-        Bump CategoriesOutlet counter
-      </button>
-      <p>CategoriesOutlet counter: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>Bump Papa counter</button>
+      <p>Papa counter: {count}</p>
 
       <CategoriesOutletChild
-        onClick={() => console.log("My child was clicked :|")}
+        onClick={() => console.log("Papa says: My child was clicked")}
       />
     </main>
   );
 };
 
 const CategoriesOutletChild = ({ onClick }: { onClick?: () => void }) => {
-  console.log("Im checking my state! - CategoriesOutletChild");
+  console.log("Child says: Im checking my state!");
   const [count, setCount] = useState(0);
 
   return (
     <div className="border-2 border-yellow-500">
-      <h2>CategoriesOutletChild:</h2>
+      <h2>Child:</h2>
 
       <button
         onClick={() => {
@@ -35,9 +33,9 @@ const CategoriesOutletChild = ({ onClick }: { onClick?: () => void }) => {
           onClick?.();
         }}
       >
-        Bump CategoriesOutletChild counter
+        Bump Child counter
       </button>
-      <p>CategoriesOutletChild counter: {count}</p>
+      <p>Child counter: {count}</p>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export const CategoriesList = ({
   className,
   ...props
 }: CategoriesListProps) => {
-  console.log("Im checking my state! - CategoriesList");
+  console.log("Uncle Joe says: Im checking my state!");
   const [count, setCount] = useState(0);
 
   return (
@@ -24,12 +24,12 @@ export const CategoriesList = ({
       className={clsx("flex flex-col border-2 border-green-500", className)}
       {...props}
     >
-      <h1>CategoriesList:</h1>
+      <h1>Uncle Joe:</h1>
 
       <button onClick={() => setCount((c) => c + 1)}>
-        Bump CategoriesList counter
+        Bump Uncle Joe's counter
       </button>
-      <p>CategoriesList counter: {count}</p>
+      <p>Uncle Joe's counter: {count}</p>
     </nav>
   );
 };
