@@ -2,9 +2,9 @@ import { Industry } from "./industry";
 
 // TODO: Remove mock, make real request
 const MOCK_INDUSTRIES: Industry[] = [
-  { name: "Industry 1" },
-  { name: "Industry 2" },
-  { name: "Industry 3" },
+  { id: "IND-0000-0001", name: "Industry 1" },
+  { id: "IND-0000-0002", name: "Industry 2" },
+  { id: "IND-0000-0003", name: "Industry 3" },
 ];
 
 export class IndustriesClient {
