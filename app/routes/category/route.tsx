@@ -2,7 +2,7 @@ import { useLoaderData } from "@remix-run/react";
 import { CategoriesClient } from "~/_sdk/categories";
 import { CategoriesList } from "./categories-list";
 import { CategoriesOutlet } from "./categories-outlet";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export async function loader() {
   const categoriesClient = new CategoriesClient(import.meta.env.VITE_API_URL);
@@ -17,6 +17,8 @@ export default function Category() {
   console.log("Im checking my state! - CategoryRoute");
   const [count, setCount] = useState(0);
 
+  const countRef = useRef(0);
+
   return (
     <div className="border-2 border-red-500">
       <h1>CategoryRoute:</h1>
@@ -24,6 +26,11 @@ export default function Category() {
         Bump CategoryRoute counter
       </button>
       <p>CategoryRoute counter: {count}</p>
+
+      <button onClick={() => countRef.current++}>
+        Bump CategoryRouteRef counter
+      </button>
+      <p>CategoryRouteRef counter: {countRef.current}</p>
 
       <CategoriesList categories={categories} />
       <CategoriesOutlet />
