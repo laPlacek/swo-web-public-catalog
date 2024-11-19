@@ -14,15 +14,16 @@ export async function loader() {
 export default function Category() {
   const categories = useLoaderData<typeof loader>();
 
-  console.log("Im checking my state! - Category Route");
+  console.log("Im checking my state! - CategoryRoute");
   const [count, setCount] = useState(0);
 
   return (
     <div className="border-2 border-red-500">
+      <h1>CategoryRoute:</h1>
       <button onClick={() => setCount((c) => c + 1)}>
-        Bump Category Route counter
+        Bump CategoryRoute counter
       </button>
-      <p>Category Route counter: {count}</p>
+      <p>CategoryRoute counter: {count}</p>
 
       <CategoriesList categories={categories} />
       <CategoriesOutlet />

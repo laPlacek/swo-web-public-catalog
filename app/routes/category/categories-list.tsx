@@ -24,14 +24,7 @@ export const CategoriesList = ({
       className={clsx("flex flex-col border-2 border-green-500", className)}
       {...props}
     >
-      <h1>Categories:</h1>
-      <ul className="flex flex-row gap-4">
-        {categories.map((c) => (
-          <li key={c.id}>
-            <Link to={`/category/${normalizeName(c.name)}`}>{c.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <h1>CategoriesList:</h1>
 
       <button onClick={() => setCount((c) => c + 1)}>
         Bump CategoriesList counter

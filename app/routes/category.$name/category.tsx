@@ -14,8 +14,6 @@ export const Category = ({
   className,
   ...props
 }: CategoriesListProps) => {
-  console.log("Im checking my state! - Category");
-
   return (
     <section className={clsx("flex flex-col gap-2", className)} {...props}>
       <h1 className="text-lg font-bold">Category {category.name}</h1>
