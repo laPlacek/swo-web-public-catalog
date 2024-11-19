@@ -1,0 +1,6 @@
+Zod-based types and clients for API + validation. (If it wasn't for validation I'd just call it _api).
+The simplest name that came to my mind was _sdk. It's because it's a set of tools that could be moved to one library and shared between projects working with public catalog.
+
+Important:
+No runtime-specific (browser API, nodeAPI) code should be here.
+No react code either. Just pure business-model code.
