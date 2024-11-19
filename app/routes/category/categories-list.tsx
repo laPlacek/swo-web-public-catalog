@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import { Category, normalizeName } from "~/_sdk/categories";
 import clsx from "clsx";
 
@@ -16,8 +16,14 @@ export const CategoriesList = ({
   className,
   ...props
 }: CategoriesListProps) => {
+  console.log("Im checking my state! - CategoriesList");
+  const [count, setCount] = useState(0);
+
   return (
-    <nav className={clsx("flex flex-col", className)} {...props}>
+    <nav
+      className={clsx("flex flex-col border-2 border-green-500", className)}
+      {...props}
+    >
       <h1>Categories:</h1>
       <ul className="flex flex-row gap-4">
         {categories.map((c) => (
@@ -26,6 +32,11 @@ export const CategoriesList = ({
           </li>
         ))}
       </ul>
+
+      <button onClick={() => setCount((c) => c + 1)}>
+        Bump CategoriesList counter
+      </button>
+      <p>CategoriesList counter: {count}</p>
     </nav>
   );
 };
